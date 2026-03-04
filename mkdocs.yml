@@ -1,0 +1,24 @@
+site_name: MLS Home Portal
+site_description: AI-assisted MLS-style home search portal with Ollama and Scrapling fallbacks
+site_url: https://chartmann1590.github.io/mls-home-portal/
+repo_url: https://github.com/chartmann1590/mls-home-portal
+repo_name: chartmann1590/mls-home-portal
+
+theme:
+  name: material
+  palette:
+    - scheme: default
+      primary: deep orange
+      accent: teal
+  features:
+    - navigation.sections
+    - navigation.top
+    - content.code.copy
+
+nav:
+  - Home: index.md
+  - Quick Start: quickstart.md
+  - Architecture: architecture.md
+  - API: api.md
+  - Security: security.md
+  - Operations: operations.md

@@ -1,0 +1,135 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>MLS AI Home Search Portal</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;700&family=Source+Sans+3:wght@400;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/assets/styles.css" />
+</head>
+<body>
+  <div class="bg-orb orb-a"></div>
+  <div class="bg-orb orb-b"></div>
+
+  <main class="container">
+    <section class="hero">
+      <p class="kicker">AI + MLS Workflow</p>
+      <h1>Find Single-Family Homes You Can Actually Afford</h1>
+      <p class="sub">Pipeline: direct MLS (if configured) -> Scapling + anti-bot fallback on <code>bhumc-av</code> -> optional API fallback.</p>
+    </section>
+
+    <section class="panel">
+      <form id="searchForm" class="form-grid">
+        <label>
+          Area (city/state/zip)
+          <input name="area" required placeholder="Raleigh NC" value="Raleigh NC" />
+        </label>
+        <label>
+          Max home cost ($)
+          <input name="max_price" type="number" min="50000" step="1000" required value="450000" />
+        </label>
+        <label>
+          Annual income ($)
+          <input name="annual_income" type="number" min="1" step="1000" required value="120000" />
+        </label>
+        <label>
+          Monthly debt ($)
+          <input name="monthly_debt" type="number" min="0" step="50" value="650" />
+        </label>
+        <label>
+          Down payment ($)
+          <input name="down_payment" type="number" min="0" step="1000" value="30000" />
+        </label>
+        <label>
+          Interest rate (%)
+          <input name="interest_rate" type="number" min="1" max="24" step="0.05" value="6.75" />
+        </label>
+        <label>
+          Loan term (years)
+          <input name="loan_term_years" type="number" min="10" max="40" step="1" value="30" />
+        </label>
+        <label>
+          Listing provider
+          <select name="provider">
+            <option value="auto">Auto: Direct MLS -> Scapling -> Apify</option>
+            <option value="mls">Direct MLS (with fallback chain)</option>
+            <option value="scapling">Scapling only</option>
+            <option value="apify">Apify only</option>
+            <option value="mock">Mock only (if enabled)</option>
+          </select>
+        </label>
+
+        <div class="actions-row">
+          <button type="submit" id="submitBtn">Run AI Home Search</button>
+          <button type="button" id="saveSearchBtn" class="secondary-btn">Save This Search</button>
+        </div>
+      </form>
+    </section>
+
+    <section class="saved-panels">
+      <article class="saved-panel">
+        <h2>Saved Searches</h2>
+        <p class="sub">Stores criteria only. Running a saved search fetches fresh listings.</p>
+        <div id="savedSearches" class="saved-list"></div>
+      </article>
+      <article class="saved-panel">
+        <h2>Saved Homes</h2>
+        <p class="sub">Bookmark specific homes from any result set.</p>
+        <div id="savedListings" class="saved-list"></div>
+      </article>
+    </section>
+
+    <section id="resultMeta" class="meta hidden"></section>
+    <section id="listingGrid" class="listing-grid"></section>
+  </main>
+
+  <template id="listingTemplate">
+    <article class="card">
+      <img class="home-img" alt="home" />
+      <div class="card-body">
+        <p class="price"></p>
+        <h3 class="address"></h3>
+        <p class="facts"></p>
+        <p class="fit-badge"></p>
+        <p class="summary"></p>
+        <button type="button" class="save-home-btn secondary-btn">Save Home</button>
+        <button type="button" class="details-btn">Open Details</button>
+        <a class="cta" target="_blank" rel="noopener noreferrer">View Listing</a>
+      </div>
+    </article>
+  </template>
+
+  <section id="listingModal" class="modal hidden" aria-hidden="true">
+    <div class="modal-backdrop" id="modalBackdrop"></div>
+    <article class="modal-panel">
+      <button type="button" class="modal-close" id="modalClose">Close</button>
+      <div class="modal-grid">
+        <div class="gallery">
+          <img id="modalMainImage" class="modal-main-image" alt="listing photo" />
+          <div class="gallery-controls">
+            <button type="button" id="prevPhoto">Prev</button>
+            <button type="button" id="nextPhoto">Next</button>
+          </div>
+          <div id="thumbStrip" class="thumb-strip"></div>
+        </div>
+        <div class="detail-pane">
+          <h2 id="modalAddress"></h2>
+          <p id="modalPrice" class="modal-price"></p>
+          <p id="modalFacts" class="modal-facts"></p>
+          <p id="modalFit" class="modal-fit"></p>
+          <p id="modalAiWhy" class="modal-ai-why"></p>
+          <h3>Description</h3>
+          <p id="modalDescription"></p>
+          <h3>Realtor Info</h3>
+          <p id="modalRealtor"></p>
+          <a id="modalListingLink" class="cta" target="_blank" rel="noopener noreferrer">Open Original Listing</a>
+        </div>
+      </div>
+    </article>
+  </section>
+
+  <script src="/assets/app.js" defer></script>
+</body>
+</html>

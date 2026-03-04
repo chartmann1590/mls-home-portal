@@ -1,0 +1,43 @@
+# Python
+__pycache__/
+*.py[cod]
+*.pyo
+*.pyd
+*.so
+
+# Virtual envs
+.venv/
+venv/
+env/
+
+# Environment and secrets
+.env
+.env.*
+!.env.example
+*.key
+*.pem
+*.p12
+*.pfx
+
+# Runtime and local state
+runtime-data/
+*.db
+*.sqlite
+*.sqlite3
+*.log
+
+# OS/editor
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/
+
+# Build/cache
+.pytest_cache/
+.mypy_cache/
+.coverage
+htmlcov/
+site/
+
+# Docker overrides
+docker-compose.override.yml
