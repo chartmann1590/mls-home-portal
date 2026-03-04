@@ -2,7 +2,7 @@
 
 Web portal for single-family home discovery using:
 - Area + max budget input
-- AI affordability analysis via Ollama on `bhumc-av`
+- AI affordability analysis via Ollama
 - Listing pipeline: direct MLS API first, then Scapling (with optional FlareSolverr), then Apify fallback
 - Saved searches (criteria-only) and saved homes bookmarks
 
@@ -12,7 +12,7 @@ Web portal for single-family home discovery using:
 
 ## Run in Docker
 ```bash
-cd /home/chartmann/mls-home-portal
+cd mls-home-portal
 cp .env.example .env
 docker-compose up -d --build
 ```
@@ -22,9 +22,9 @@ Saved searches and saved homes are persisted in `./runtime-data/portal.db` via D
 
 ## Environment
 Set in `.env`:
-- `OLLAMA_URL` default: `http://bhumc-av:11434`
+- `OLLAMA_URL` default: `http://host.docker.internal:11434`
 - `OLLAMA_MODEL` default: `llama3.2:latest`
-- `SCAPLING_URL` default: `http://bhumc-av:3000`
+- `SCAPLING_URL` default: `http://scapling-bridge:3000`
 - `SCAPLING_TOKEN` optional
 - `FLARESOLVERR_URL` default: `http://host.docker.internal:8191/v1` (optional anti-bot fallback)
 - `MLS_API_URL` optional direct MLS/IDX API base URL

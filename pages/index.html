@@ -1,0 +1,82 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="MLS Home Portal repository: AI-assisted property search stack with FastAPI, Docker, and resilient data-source fallbacks." />
+  <title>MLS Home Portal | Repository</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;600;700&family=Source+Sans+3:wght@400;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="./styles.css" />
+</head>
+<body>
+  <header class="hero">
+    <nav class="nav">
+      <strong>MLS Home Portal</strong>
+      <a href="https://github.com" target="_blank" rel="noopener noreferrer">GitHub</a>
+    </nav>
+    <div class="hero-content">
+      <p class="eyebrow">Open Source Repository</p>
+      <h1>AI-Assisted Home Search Stack with Real-World Fallbacks</h1>
+      <p class="sub">A production-minded repo for budget-aware home search using FastAPI, Docker, Ollama, scrape fallbacks, and persistence for saved searches and homes.</p>
+      <div class="hero-actions">
+        <a class="btn btn-primary" href="https://github.com" target="_blank" rel="noopener noreferrer">GitHub</a>
+        <a class="btn btn-secondary" href="#quickstart">Quick Start</a>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <section class="section cards">
+      <article class="card">
+        <h2>Resilient Search Pipeline</h2>
+        <p>Direct MLS (optional) plus scrape/API fallback chain designed for non-ideal real-world sources.</p>
+      </article>
+      <article class="card">
+        <h2>AI Affordability + Fit</h2>
+        <p>Uses local LLM support to evaluate affordability and generate listing-level fit summaries.</p>
+      </article>
+      <article class="card">
+        <h2>Docker-First Deployment</h2>
+        <p>Single compose stack with health checks, restart policy, and persisted saved data volume.</p>
+      </article>
+    </section>
+
+    <section class="section split" id="quickstart">
+      <div>
+        <h2>Quick Start</h2>
+        <ol>
+          <li>Clone the repository.</li>
+          <li>Copy <code>.env.example</code> to <code>.env</code>.</li>
+          <li>Run <code>docker compose up -d --build</code>.</li>
+        </ol>
+      </div>
+      <pre><code>git clone &lt;your-repo-url&gt;
+cd &lt;repo-folder&gt;
+cp .env.example .env
+docker compose up -d --build</code></pre>
+    </section>
+
+    <section class="section">
+      <h2>Repository Highlights</h2>
+      <ul class="feature-list">
+        <li>FastAPI backend with structured search/detail/saved endpoints</li>
+        <li>Frontend search UI with listing detail modal and save actions</li>
+        <li>SQLite persistence for saved search criteria and saved homes</li>
+        <li>GitHub Actions CI, Pages deploy, and secret scanning workflows</li>
+      </ul>
+    </section>
+
+    <section class="section cta">
+      <h2>Explore the Codebase</h2>
+      <p>Use this repo as a base for your own real-estate research workflow, AI-assisted filtering, or data-source resilience experiments.</p>
+      <a class="btn btn-primary" href="https://github.com" target="_blank" rel="noopener noreferrer">GitHub</a>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <p>MLS Home Portal Repository</p>
+  </footer>
+</body>
+</html>

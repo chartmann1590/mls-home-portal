@@ -16,11 +16,7 @@ AI-assisted single-family home search portal that integrates:
 - Saved searches (criteria-only, reruns live)
 - Saved homes bookmarks
 
-## Live Deployment
+## Default Local Access
 
-- App URL: `http://100.114.139.103:18088`
-- Health: `http://100.114.139.103:18088/health`
-
-## Source
-
-- Repository: `chartmann1590/mls-home-portal`
+- App URL: `http://localhost:8088`
+- Health: `http://localhost:8088/health`

@@ -1,8 +1,6 @@
 site_name: MLS Home Portal
 site_description: AI-assisted MLS-style home search portal with Ollama and Scrapling fallbacks
-site_url: https://chartmann1590.github.io/mls-home-portal/
-repo_url: https://github.com/chartmann1590/mls-home-portal
-repo_name: chartmann1590/mls-home-portal
+site_url: https://example.com/mls-home-portal/
 
 theme:
   name: material
