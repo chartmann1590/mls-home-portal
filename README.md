@@ -1,5 +1,7 @@
 # MLS AI Home Search Portal
 
+[Project Landing Page](https://chartmann1590.github.io/mls-home-portal/)
+
 Web portal for single-family home discovery using:
 - Area + max budget input
 - AI affordability analysis via Ollama
